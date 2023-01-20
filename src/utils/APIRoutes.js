@@ -1,4 +1,4 @@
-export const host = "http://localhost:5000";
+export const host = "https://pizza-be.vercel.app";
 
 export const getPizzaData = `${host}/api/pizzas/getAllPizzas`;
 export const addNewPizza = `${host}/api/pizzas/addpizza`;
