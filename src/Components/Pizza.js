@@ -5,21 +5,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../actions/cartAction";
 import { FaRupeeSign } from "react-icons/fa";
 import "../CSS/Pizza.css";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 
 function Pizza({ pizza }) {
-
   const Toast = Swal.mixin({
     toast: true,
-    position: 'top-end',
+    position: "top-end",
     showConfirmButton: false,
     timer: 2000,
     timerProgressBar: true,
     didOpen: (toast) => {
-      toast.addEventListener('mouseenter', Swal.stopTimer)
-      toast.addEventListener('mouseleave', Swal.resumeTimer)
-    }
-  })
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    },
+  });
 
   const [varient, setVarient] = useState("small");
   const [quantity, setQuantity] = useState(1);
@@ -32,12 +31,14 @@ function Pizza({ pizza }) {
   const addToCartHandler = () => {
     if (currentUser) {
       dispatch(addToCart(pizza, quantity, varient));
-      Toast.fire({ icon: 'success', title: 'This item has been added to cart' })
+      Toast.fire({
+        icon: "success",
+        title: "This item has been added to cart",
+      });
     } else {
-      Toast.fire({ icon: 'warning', title: `Please login to shop pizza!` })
+      Toast.fire({ icon: "warning", title: `Please login to shop pizza!` });
     }
   };
-
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -50,27 +51,33 @@ function Pizza({ pizza }) {
           marginTop: "30px",
           objectFit: "cover",
           borderRadius: "15px",
-          boxShadow: "rgba(255, 0, 0, 0.8) 12px 8px 12px",
+          boxShadow: "rgb(252, 217, 223) 12px 8px 12px",
           backgroundColor: "rgb(172, 0, 29)",
           border: "1px solid rgb(172, 0, 29)",
-
-
         }}
       >
         <Card.Img
           variant="top"
           src={pizza.image}
-          style={{ height: "200px", cursor: "pointer", borderRadius: "15px", padding: "5px" }}
+          style={{
+            height: "200px",
+            cursor: "pointer",
+            borderRadius: "15px",
+            padding: "5px",
+          }}
           onClick={handleShow}
         />
         <Card.Body>
-          <Card.Title className="text-white text-center">{pizza.name}</Card.Title>
+          <Card.Title className="text-white text-center">
+            {pizza.name}
+          </Card.Title>
           <hr className="text-white" />
           <Card.Text>
             <Row>
               <Col md={6}>
                 <p className="text-white">Varients</p>
-                <select className="text-white rounded bg-transparent"
+                <select
+                  className="text-white rounded bg-transparent"
                   value={varient}
                   onChange={(e) => setVarient(e.target.value)}
                 >
@@ -81,7 +88,8 @@ function Pizza({ pizza }) {
               </Col>
               <Col md={6}>
                 <p className="text-white">Quantity</p>
-                <select className="text-white rounded bg-transparent"
+                <select
+                  className="text-white rounded bg-transparent"
                   value={quantity}
                   onChange={(e) => setQuantity(e.target.value)}
                 >
