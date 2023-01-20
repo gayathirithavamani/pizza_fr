@@ -6,16 +6,15 @@ import { adminUser } from "../actions/userAction";
 import Loader from "../Components/Loader";
 import Success from "../Components/Success";
 import Error from "../Components/Error";
-import '../CSS/login.css';
+import "../CSS/login.css";
 
 function AdminLogin() {
-
-  const [email, setEmail] = useState("admin@gmail.com");
-  const [password, setPassword] = useState("admin@1234");
+  const [email, setEmail] = useState("gayat2000@gmail.com");
+  const [password, setPassword] = useState("gayat2000@");
   const dispatch = useDispatch();
 
-  const adminState = useSelector(state => state.adminUserReducer)
-  const { loading, success, error } = adminState
+  const adminState = useSelector((state) => state.adminUserReducer);
+  const { loading, success, error } = adminState;
 
   useEffect(() => {
     if (localStorage.getItem("currentUser")) {
@@ -26,16 +25,16 @@ function AdminLogin() {
   function handleLogin() {
     const user = { email, password };
     dispatch(adminUser(user));
-
   }
   return (
     <>
       <Container>
         <Row>
-          <Col md={3}>
-          </Col>
+          <Col md={3}></Col>
           <Col
-            xs={12} sm={12} md={6}
+            xs={12}
+            sm={12}
+            md={6}
             className="d-flex align-items-center justify-content-center"
           >
             <Form className="form adminlogin mt-5">
@@ -66,11 +65,9 @@ function AdminLogin() {
                 Admin Login
               </Button>
               {error && <Error error="email or password incorrect" />}
-
             </Form>
           </Col>
-          <Col md={3}>
-          </Col>
+          <Col md={3}></Col>
         </Row>
       </Container>
     </>
@@ -78,8 +75,3 @@ function AdminLogin() {
 }
 
 export default AdminLogin;
-
-
-
-
-

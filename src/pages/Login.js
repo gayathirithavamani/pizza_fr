@@ -6,15 +6,15 @@ import { Link } from "react-router-dom";
 import Loader from "../Components/Loader";
 import Success from "../Components/Success";
 import Error from "../Components/Error";
-import '../CSS/login.css';
+import "../CSS/login.css";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
 
-  const loginState = useSelector(state => state.loginUserReducer)
-  const { loading, success, error } = loginState
+  const loginState = useSelector((state) => state.loginUserReducer);
+  const { loading, success, error } = loginState;
 
   useEffect(() => {
     if (localStorage.getItem("currentUser")) {
@@ -31,18 +31,24 @@ function Login() {
     <>
       <Container>
         <Row>
-          <Col md={3}>
-          </Col>
+          <Col md={3}></Col>
           <Col
-            xs={12} sm={12} md={6}
-            className="d-flex align-items-center justify-content-center">
+            xs={12}
+            sm={12}
+            md={6}
+            className="d-flex align-items-center justify-content-center"
+          >
             <Form className="form loginform">
-              <h1 className="text-center" style={{ color: "black" }}>Login</h1>
+              <h1 className="text-center" style={{ color: "black" }}>
+                Login
+              </h1>
               {loading && <Loader />}
               {success && <Success success="User logged in" />}
 
               <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label className="text-center" style={{ color: "black" }}>Email address</Form.Label>
+                <Form.Label className="text-center" style={{ color: "black" }}>
+                  Email address
+                </Form.Label>
                 <Form.Control
                   type="email"
                   placeholder="Enter your email"
@@ -53,7 +59,9 @@ function Login() {
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label className="" style={{ color: "black" }}>Password</Form.Label>
+                <Form.Label className="" style={{ color: "black" }}>
+                  Password
+                </Form.Label>
                 <Form.Control
                   type="password"
                   placeholder="Password"
@@ -74,21 +82,17 @@ function Login() {
                 <p className="">
                   Don't have an account? <Link to="/register"> Register</Link>
                 </p>
-
               </div>
-              <div className="text-center">
+              {/* <div className="text-center">
                 <p className="">
                   <strong>Test Account</strong> : User@gmail.com <br />
                   <strong>password</strong> : User@1234
                 </p>
 
-              </div>
-
+              </div> */}
             </Form>
           </Col>
-          <Col md={3}>
-
-          </Col>
+          <Col md={3}></Col>
         </Row>
       </Container>
     </>
