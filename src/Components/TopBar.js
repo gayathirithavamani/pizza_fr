@@ -1,8 +1,8 @@
 import React from "react";
-import { Navbar, Container, Nav, Image, NavDropdown, Button, } from "react-bootstrap";
+import { Navbar, Container, Nav, NavDropdown, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { LinkContainer } from "react-router-bootstrap";
-import img from "../logo.png";
+
 import { logoutUser } from "../actions/userAction";
 
 function TopBar() {
@@ -12,13 +12,15 @@ function TopBar() {
   const { currentUser } = userState;
   return (
     <>
-      <Navbar variant="dark" expand="lg" sticky="top" style={{ backgroundColor: "rgb(172, 0, 29)" }}>
+      <Navbar
+        variant="dark"
+        expand="lg"
+        sticky="top"
+        style={{ backgroundColor: "rgb(172, 0, 29)" }}
+      >
         <Container>
           <Navbar.Brand>
-            <Image src={img} alt="logo" style={{ height: "50px" }} />
-          </Navbar.Brand>
-          <Navbar.Brand>
-            <h3>Pizza Hut</h3>
+            <h3>Pizza Online</h3>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
@@ -51,7 +53,6 @@ function TopBar() {
                         Cart&nbsp;{cartState.cartItems.length}
                       </Nav.Link>
                     </LinkContainer>
-
                   ) : (
                     <LinkContainer to="/admin">
                       <Nav.Link>Admin panel</Nav.Link>

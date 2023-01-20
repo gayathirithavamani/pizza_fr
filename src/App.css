@@ -1,8 +1,8 @@
 body {
-    background-color: rgb(172, 0, 29);
+  background-color: rgb(117, 47, 58);
 }
 
 /* width */
 ::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
